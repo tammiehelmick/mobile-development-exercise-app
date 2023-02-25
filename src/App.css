@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  width: 500px;
+  margin: 0 auto;
 }
 
 .App-logo {
@@ -35,4 +37,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.noBullet {
+  list-style-type: none;
 }

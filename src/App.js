@@ -2,6 +2,7 @@ import './App.css'
 import { useState } from 'react'
 import RepetitionExercise from './components/r_exercise.js'
 import DurationExercise from './components/d_exercise.js'
+import LapsExercise from './components/l_exercise.js'
 
 let curId = 0
 
@@ -41,6 +42,7 @@ function App() {
   const LIST_STATE = 0
   const REPETITION = 1
   const DURATION = 2
+  const LAPS = 3
 
   let [menuItems, setMenuItems] = useState(menuItemInit)
   let [curMenuItemId, setCurMenuItemId] = useState(0)
@@ -60,6 +62,10 @@ function App() {
       setCurScreen(DURATION)
       setCurMenuItemId(menu.itemId)}
       }>Duration</button>
+      <button onClick={()=>{
+      setCurScreen(LAPS)
+      setCurMenuItemId(menu.itemId)}
+      }>Laps</button>
        </>
       )}
       </>
@@ -75,6 +81,12 @@ function App() {
     screen = <>
     <button onClick={()=>setCurScreen(LIST_STATE)}>Back to Home</button>
     <DurationExercise key={curMenuItem.itemId} {...curMenuItem}/>
+    </>
+  }
+  else if (curScreen === LAPS) {
+    screen = <>
+    <button onClick={()=>setCurScreen(LIST_STATE)}>Back to Home</button>
+    <LapsExercise key={curMenuItem.itemId} {...curMenuItem}/>
     </>
   }
   return (
